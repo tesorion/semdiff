@@ -119,25 +119,25 @@ module RDiff
       end
     end
 
-    def flatten_associative_operation(op, left, right)
+    def flatten_associative_operation(operation, left, right)
       operands = []
 
       left = unwrap_parentheses(left)
       if left.type == :call_node &&
-         left.name == op &&
+         left.name == operation &&
          left.arguments&.arguments&.size == 1 &&
          left.block.nil?
-        operands.concat(flatten_associative_operation(op, left.receiver, left.arguments.arguments.first))
+        operands.concat(flatten_associative_operation(operation, left.receiver, left.arguments.arguments.first))
       else
         operands << left
       end
 
       right = unwrap_parentheses(right)
       if right.type == :call_node &&
-         right.name == op &&
+         right.name == operation &&
          right.arguments&.arguments&.size == 1 &&
          right.block.nil?
-        operands.concat(flatten_associative_operation(op, right.receiver, right.arguments.arguments.first))
+        operands.concat(flatten_associative_operation(operation, right.receiver, right.arguments.arguments.first))
       else
         operands << right
       end
@@ -150,7 +150,7 @@ module RDiff
       node
     end
 
-    def rebuild_associative_operation(original_node, op, operands)
+    def rebuild_associative_operation(original_node, operation, operands)
       result = operands.first
 
       operands[1..].each do |operand|
@@ -161,7 +161,7 @@ module RDiff
           flags: 0,
           receiver: result,
           call_operator_loc: nil,
-          name: op,
+          name: operation,
           message_loc: original_node.message_loc,
           opening_loc: nil,
           arguments: arguments_node(
