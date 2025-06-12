@@ -26,3 +26,4 @@ AllCops:
   Exclude:
     - 'test/assets/yard/*'
     - 'yard-validator/**/*'
+    - 'vendor/**/*'
