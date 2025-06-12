@@ -141,8 +141,6 @@ module RDiff
         puts parser
         puts "Invalid argument (use rdiff --help): #{e}"
         exit 1
-      rescue ArgumentError => e
-        raise e
       end
 
       @options

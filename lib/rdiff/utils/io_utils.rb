@@ -183,7 +183,7 @@ module RDiff
     def with_diff_files(contents, names, output_directory: nil)
       prefix = 'unparsed_'
       if output_directory
-        FileUtils.mkdir_p(output_directory) unless Dir.exist?(output_directory)
+        FileUtils.mkdir_p(output_directory)
         b, a = contents.zip(names).map do |c, n|
           path = File.join(output_directory, "#{prefix}#{n}")
           File.write(path, c)

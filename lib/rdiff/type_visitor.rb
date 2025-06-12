@@ -122,12 +122,10 @@ module RDiff
         return path[2..] if path.start_with?('::')
 
         candidate = fqn.empty? ? path : "#{fqn}::#{path}"
-        if @mods.include?(candidate)
+        if @mods.include?(candidate) || !@mods.include?(path)
           candidate
-        elsif @mods.include?(path)
-          path
         else
-          candidate
+          path
         end
       else
         raise "Unsupported path node type for #{path_node.type}"

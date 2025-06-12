@@ -22,6 +22,7 @@ Metrics/ModuleLength:
   Enabled: false
 
 AllCops:
+  NewCops: enable
   Exclude:
     - 'test/assets/yard/*'
     - 'yard-validator/**/*'

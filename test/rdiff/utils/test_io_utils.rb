@@ -7,8 +7,7 @@ module RDiff
     include Yard::TypeModel::Definitions
 
     def test_temp_file_exists
-      f = temp_file(<<~RUBY)
-      RUBY
+      f = temp_file('')
       assert_path_exists(f.path, 'it can create temporary files')
       File.unlink(f.path)
     end
@@ -20,8 +19,7 @@ module RDiff
     end
 
     def test_yardoc_default_generation
-      source = <<~RUBY
-      RUBY
+      source = ''
       with_yardoc(source) do |files, dir|
         assert_equal(files.size, 1, 'it creates one file for one source')
         f = files.first

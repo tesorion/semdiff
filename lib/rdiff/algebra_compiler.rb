@@ -108,9 +108,7 @@ module RDiff
       case node.type
       when :local_variable_read_node, :instance_variable_read_node,
            :class_variable_read_node, :global_variable_read_node,
-           :constant_read_node
-        node.name.to_s
-      when :call_node
+           :constant_read_node, :call_node
         node.name.to_s
       when :integer_node, :float_node
         "_#{node.value}"
