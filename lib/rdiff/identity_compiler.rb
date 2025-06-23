@@ -92,8 +92,8 @@ module RDiff
         elsif (lhs_integer && zero_literal?(rhs)) ||
               (rhs_integer && zero_literal?(lhs))
           # 0 * x or x * 0 => 0
-          # TODO: explain how this is not safe for other Numeric
-          # TODO: explain how this is not safe for Float because of INFINITY or NaN instead of 0
+          # This works for integers, but not for Float
+          # because of INFINITY or NaN instead of 0.
           result = rhs && zero_literal?(rhs) ? rhs : lhs
         end
       when :/
@@ -105,7 +105,6 @@ module RDiff
           result = lhs
         elsif lhs_integer && zero_literal?(rhs)
           # x ** 0 => 1
-          # TODO: explain how this is not safe for other Numeric
           flags = integer_base_flag(:decimal) | Prism::NodeFlags::STATIC_LITERAL
           result = integer_node(
             source: node.send(:source),
