@@ -1,12 +1,5 @@
-class Foo
-  # @param a [Numeric]
-  # @param b [Numeric]
-  # @param c [Numeric]
-  # @param d [Numeric]
-  def foo(a, b, c, d)
-    a + b + c + d
-    a + b + c + d
-    a + b + c + d
-    a + b + c + d
-  end
+# @param [Integer] a
+# @param [Integer] b
+def plus(a, b)
+  return a + b
 end
