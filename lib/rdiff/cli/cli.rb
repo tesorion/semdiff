@@ -52,6 +52,14 @@ module RDiff
           @options[:annotation_type] = :rbs
           @options[:annotation_target] = target || 'sig'
         end
+
+        opts.on('--gumtree', 'Use gumtree webdiff after default difftastic') do |g|
+          @options[:gumtree] = g
+        end
+
+        opts.on('--skip-difftastic', 'Skip difftastic text diff') do |d|
+          @options[:skip_difftastic] = d
+        end
       end
 
       begin
@@ -122,19 +130,29 @@ module RDiff
           r.is_a?(Array) ? Unparser.unparse(r.first, comments: r.last) : Unparser.unparse(r)
         end
         file_names = files.map { |f| File.basename(f) }
-        if @options[:diff_original]
+        if !@options[:skip_difftastic] && @options[:diff_original]
           system <<~CMD
             difft #{files.first} #{files.last} \
             #{'--check-only --exit-code' if @options[:check_only]} \
             #{'--ignore-comments' if @options[:ignore_comments]}
           CMD
         end
+        return if @options[:skip_difftastic] && !@options[:gumtree]
+
         with_diff_files(unparsed, file_names, output_directory: @options[:output_directory]) do |b, a|
-          system <<~CMD
-            difft #{b.path} #{a.path} \
-            #{'--check-only --exit-code' if @options[:check_only]} \
-            #{'--ignore-comments' if @options[:ignore_comments]}
-          CMD
+          unless @options[:skip_difftastic]
+            system <<~CMD
+              difft #{b.path} #{a.path} \
+              #{'--check-only --exit-code' if @options[:check_only]} \
+              #{'--ignore-comments' if @options[:ignore_comments]}
+            CMD
+          end
+          if @options[:gumtree]
+            system <<~CMD
+              gumtree webdiff #{b.path} #{a.path} \
+              -g ruby-treesitter-ng
+            CMD
+          end
         end
       rescue OptionParser::InvalidOption => e
         puts e.message
