@@ -21,9 +21,9 @@ module RDiff
     include CompilerUtils
 
     def visit_call_node(node)
-      receiver = visit(node.receiver)
+      receiver  = visit(node.receiver)
       arguments = visit(node.arguments)
-      block = visit(node.block)
+      block     = visit(node.block)
 
       result = case node.name
                when :new

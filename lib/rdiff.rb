@@ -12,8 +12,8 @@ module RDiff
   # external
   require 'prism'
   # suppress warning (re: https://github.com/glebm/i18n-tasks/pull/613):
-  # warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.1.
-  # Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
+  #   warning: parser/current is loading parser/ruby34, which recognizes 3.4.0-dev-compliant syntax, but you are running 3.4.1.
+  #   Please see https://github.com/whitequark/parser#compatibility-with-ruby-mri.
   prev = $VERBOSE
   $VERBOSE = nil
   require 'unparser'

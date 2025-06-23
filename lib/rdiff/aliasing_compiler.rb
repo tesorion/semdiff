@@ -37,10 +37,10 @@ module RDiff
     }.freeze
 
     def visit_call_node(node)
-      receiver       = visit(node.receiver)
-      arguments      = visit(node.arguments)
-      block          = visit(node.block)
-      result         = nil
+      receiver  = visit(node.receiver)
+      arguments = visit(node.arguments)
+      block     = visit(node.block)
+      result    = nil
 
       if UNTYPED_ALIASES.key?(node.name)
         canonical_name = UNTYPED_ALIASES[node.name]

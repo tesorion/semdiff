@@ -16,9 +16,7 @@ module RDiff
       with_temp_files(*content) do |files|
         with_temp_dir do |dir|
           system(*yardoc_cmd(files, dir))
-          # system("bundle exec yard list --db #{dir}")
           program_node = Prism.parse_file(files.first.path).value
-          # program_node = program_node.accept(Prism::DesugarCompiler.new)
           types = YardBuilder.new(dir, false).build
           node_types = TypeVisitor.new(types).visit(program_node)
           yield program_node, node_types
@@ -64,24 +62,9 @@ module RDiff
     def with_full_prism(*contents)
       with_temp_files(*contents) do |files|
         with_temp_dir do |dir|
-          cmd = [
-            'bundle', 'exec', 'yardoc',
-            *files.map(&:path),
-            '--db', dir,
-            '--quiet',
-            '--no-output',
-            '--no-cache',
-            '--fail-on-warning',
-            '--embed-mixins',
-            '--list'
-          ]
-          system(*cmd)
-          # system("bundle exec yard --list -c #{dir}")
-          # system("bundle exec yard display A::Top#bar --db #{dir}")
+          system(*yardoc_cmd(files, dir))
           program_node = Prism.parse_file(files.first.path).value
-          # program_node = Prism::Translation::Parser34.parse_file(files.first.path)
           types = YardBuilder.new(dir, false).build
-          # pp types
           yield files, dir, program_node, types
         end
       end
