@@ -95,17 +95,10 @@ module RDiff
           ast = ast.accept(IdentityCompiler.new(node_types)) unless types.nil?
           ast = ast.accept(ConstantsCompiler.new)
 
-          # NOTE: This should be changed once more tooling catches up
-          # with Prism. Basically, all structural Ruby diff tools work with
-          # whitequark/parser (none with Prism at least), so we have to
-          # translate the ASTs we modified using the Prism API. Similarly,
-          # there is no rewriter (unparser) for Prism natively. Prism
-          # offers translation to parser, but this API seems restricted to
-          # the parsing step (i.e., parse with Prism then translate in
-          # one go). All this results in the hack below to provide parser
-          # ASTs post Prism normalizations and unparsed code to feed to
-          # difftastic (or other diff tools). There might be a better way
-          # to do this now, but there definitely will be in the near future.
+          # NOTE: Uses the translation parser builder to
+          # translate the existing AST to whitequark/parser,
+          # so that we can rewrite with unparser and feed the
+          # files to difftastic/GumTree.
           translator = Prism::Translation::Parser.new(
             parser: Struct.new(:prism_ast, :original_result) do
               def parse(source, **options)
@@ -121,7 +114,7 @@ module RDiff
               end
             end.new(ast, original_result)
           )
-          source_buffer = Parser::Source::Buffer.new('(string)', 1)
+          source_buffer = Parser::Source::Buffer.new(file)
           source_buffer.source = contents
           translator.send(@options[:ignore_comments] ? 'parse' : 'parse_with_comments', source_buffer)
         end
