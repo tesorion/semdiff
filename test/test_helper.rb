@@ -7,6 +7,9 @@ require 'minitest/autorun'
 
 module RDiff
   class TestCase < ::Minitest::Test
+    # Load YARD builder files
+    ::Typeguard::TypeModel::Builder.yard
+
     include IOUtils
 
     def untyped_compilers

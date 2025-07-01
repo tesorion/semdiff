@@ -4,7 +4,7 @@ require 'tempfile'
 
 module RDiff
   module IOUtils
-    include Yard::TypeModel::Builder
+    include ::Typeguard::TypeModel::Builder
 
     FILE_PREFIX = 'source'
     FILE_SUFFIX = '.rb'

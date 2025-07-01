@@ -68,15 +68,15 @@ module RDiff
 
         types = case @options[:annotation_type]
                 when :yard
-                  Yard::TypeModel::Builder.yard
+                  ::Typeguard::TypeModel::Builder.yard
                   @options[:annotation_target] ||= files
-                  Yard::TypeModel::Builder::IMPLEMENTATION.new(
+                  ::Typeguard::TypeModel::Builder::IMPLEMENTATION.new(
                     @options[:annotation_target],
                     @options[:annotation_target].is_a?(Array)
                   ).build
                 when :rbs
-                  Yard::TypeModel::Builder.rbs
-                  Yard::TypeModel::Builder::IMPLEMENTATION.new(
+                  ::Typeguard::TypeModel::Builder.rbs
+                  ::Typeguard::TypeModel::Builder::IMPLEMENTATION.new(
                     @options[:annotation_target],
                     false
                   ).build

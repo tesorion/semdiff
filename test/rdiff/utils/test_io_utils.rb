@@ -4,7 +4,7 @@ require 'test_helper'
 
 module RDiff
   class IOUtilsTest < TestCase
-    include Yard::TypeModel::Definitions
+    include ::Typeguard::TypeModel::Definitions
 
     def test_temp_file_exists
       f = temp_file('')

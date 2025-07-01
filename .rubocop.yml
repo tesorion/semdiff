@@ -25,5 +25,4 @@ AllCops:
   NewCops: enable
   Exclude:
     - 'test/assets/yard/*'
-    - 'yard-validator/**/*'
     - 'vendor/**/*'

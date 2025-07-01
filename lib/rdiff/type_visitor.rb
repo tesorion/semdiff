@@ -6,7 +6,7 @@ module RDiff
   # This visitor is responsible for mapping AST nodes to type information.
   # Returns a Hash of `node_id => flags` : `{10 => 7, 11 => 7}`
   class TypeVisitor < ::Prism::Visitor
-    include Yard::TypeModel::Definitions
+    include ::Typeguard::TypeModel::Definitions
 
     UNSAFE_NUMERIC_CLASSES = %i[Date::Infinity].freeze
     NUMERIC_CLASSES = %i[Numeric Integer Float Rational Complex].freeze

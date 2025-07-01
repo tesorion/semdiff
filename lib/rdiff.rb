@@ -1,13 +1,8 @@
 # frozen_string_literal: true
 
 module RDiff
-  # git submodule for type specifications
-  require_relative '../yard-validator/lib/yard/type_model/definitions'
-  require_relative '../yard-validator/lib/yard/type_model/builder'
-  require_relative '../yard-validator/lib/yard/type_model/builder/rbs_builder'
-  require_relative '../yard-validator/lib/yard/type_model/builder/yard_builder'
-  require_relative '../yard-validator/lib/yard/type_model/mapper/rbs_mapper'
-  require_relative '../yard-validator/lib/yard/type_model/mapper/yard_mapper'
+  # typeguard gem for type specifications
+  require 'typeguard'
 
   # external
   require 'prism'
