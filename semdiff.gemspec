@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.authors = ['Tesorion']
   spec.email = ['QmanageDevelopment@tesorion.nl']
 
-  spec.summary = 'Diff two files with AST normalizations'
+  spec.summary = 'Semantic differences for Ruby code changes'
   spec.homepage = 'https://github.com/tesorion/semdiff'
   spec.required_ruby_version = '>= 2.7.0'
 
