@@ -2,10 +2,10 @@
 
 $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
 
-require 'rdiff'
+require 'semdiff'
 require 'minitest/autorun'
 
-module RDiff
+module Semdiff
   class TestCase < ::Minitest::Test
     # Load YARD builder files
     ::Typeguard::TypeModel::Builder.yard

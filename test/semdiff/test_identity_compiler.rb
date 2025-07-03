@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-module RDiff
+module Semdiff
   class IdentityCompilerTest < TestCase
     def untyped_compilers
       []

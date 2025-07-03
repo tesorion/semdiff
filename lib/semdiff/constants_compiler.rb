@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module RDiff
+module Semdiff
   # ConstantsCompiler is a compiler that folds constant literal
   # expressions into single constants.
   #

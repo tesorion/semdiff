@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module RDiff
+module Semdiff
   # typeguard gem for type specifications
   require 'typeguard'
 
@@ -15,17 +15,17 @@ module RDiff
   $VERBOSE = prev
 
   # utils
-  require_relative 'rdiff/utils/compiler_utils'
-  require_relative 'rdiff/utils/io_utils'
+  require_relative 'semdiff/utils/compiler_utils'
+  require_relative 'semdiff/utils/io_utils'
 
   # prism compilers and visitors
-  require_relative 'rdiff/aliasing_compiler'
-  require_relative 'rdiff/constants_compiler'
-  require_relative 'rdiff/identity_compiler'
-  require_relative 'rdiff/structures_compiler'
-  require_relative 'rdiff/algebra_compiler'
-  require_relative 'rdiff/type_visitor'
+  require_relative 'semdiff/aliasing_compiler'
+  require_relative 'semdiff/constants_compiler'
+  require_relative 'semdiff/identity_compiler'
+  require_relative 'semdiff/structures_compiler'
+  require_relative 'semdiff/algebra_compiler'
+  require_relative 'semdiff/type_visitor'
 
   # command line module
-  require_relative 'rdiff/cli/cli'
+  require_relative 'semdiff/cli/cli'
 end

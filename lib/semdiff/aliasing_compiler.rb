@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module RDiff
+module Semdiff
   # AliasingCompiler is a compiler that unifies method aliases
   # according to the Ruby style guide (https://rubystyle.guide/)
   # based on type information.

@@ -12,7 +12,7 @@
 # Include: **/*.gemspec
 Gemspec/RequireMFA:
   Exclude:
-    - 'rdiff.gemspec'
+    - 'semdiff.gemspec'
 
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).
@@ -20,7 +20,7 @@ Gemspec/RequireMFA:
 # NotImplementedExceptions: NotImplementedError
 Lint/UnusedMethodArgument:
   Exclude:
-    - 'lib/rdiff/cli/cli.rb'
+    - 'lib/semdiff/cli/cli.rb'
 
 # Offense count: 4
 # Configuration parameters: AllowedConstants.
@@ -28,10 +28,10 @@ Style/Documentation:
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
-    - 'lib/rdiff.rb'
-    - 'lib/rdiff/cli/cli.rb'
-    - 'lib/rdiff/utils/compiler_utils.rb'
-    - 'lib/rdiff/utils/io_utils.rb'
+    - 'lib/semdiff.rb'
+    - 'lib/semdiff/cli/cli.rb'
+    - 'lib/semdiff/utils/compiler_utils.rb'
+    - 'lib/semdiff/utils/io_utils.rb'
 
 # Offense count: 3
 # This cop supports safe autocorrection (--autocorrect).

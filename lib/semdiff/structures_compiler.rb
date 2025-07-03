@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module RDiff
+module Semdiff
   # StructuresCompiler is a compiler that normalizes common
   # data structure operations.
   #

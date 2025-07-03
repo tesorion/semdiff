@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module RDiff
+module Semdiff
   # IdentityCompiler is a compiler that simplifies arithmetic identities
   # for variables based on type information.
   #

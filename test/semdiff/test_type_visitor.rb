@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-module RDiff
+module Semdiff
   class TypeVisitorTest < ::Minitest::Test
     include IOUtils
     include NodeTypeFlags

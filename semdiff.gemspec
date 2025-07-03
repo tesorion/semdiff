@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'lib/rdiff/version'
+require_relative 'lib/semdiff/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'rdiff'
-  spec.version = Rdiff::VERSION
+  spec.name = 'semdiff'
+  spec.version = Semdiff::VERSION
   spec.authors = ['Tesorion']
   spec.email = ['QmanageDevelopment@tesorion.nl']
 
@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   end
   spec.bindir = 'exe'
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
-  spec.executables << 'rdiff'
+  spec.executables << 'semdiff'
   spec.require_paths = ['lib']
 
   spec.add_dependency 'optparse'

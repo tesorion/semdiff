@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-module RDiff
+module Semdiff
   class IOUtilsTest < TestCase
     include ::Typeguard::TypeModel::Definitions
 

@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-module RDiff
+module Semdiff
   class StructuresCompilerTest < TestCase
     def untyped_compilers
       [StructuresCompiler]

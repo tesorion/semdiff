@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module RDiff
+module Semdiff
   # AlgebraCompiler is a compiler that simplifies expressions with algebraic
   # relations based on type information.
   #

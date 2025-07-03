@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module RDiff
+module Semdiff
   module CompilerUtils
     # NOTE: Uses `send` to access protected flags, seems
     # preferable over extending Node(s)

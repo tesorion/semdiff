@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-module RDiff
+module Semdiff
   class AlgebraCompilerTest < TestCase
     def untyped_compilers
       []

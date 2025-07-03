@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module RDiff
+module Semdiff
   class CLI
     include IOUtils
 
@@ -12,7 +12,7 @@ module RDiff
       require 'optionparser'
 
       parser = OptionParser.new do |opts|
-        opts.banner = 'Usage: rdiff [options] BEFORE.rb AFTER.rb'
+        opts.banner = 'Usage: semdiff [options] BEFORE.rb AFTER.rb'
         opts.separator ''
         opts.separator 'Specific options:'
 
@@ -150,7 +150,7 @@ module RDiff
       rescue OptionParser::InvalidOption => e
         puts e.message
         puts parser
-        puts "Invalid argument (use rdiff --help): #{e}"
+        puts "Invalid argument (use semdiff --help): #{e}"
         exit 1
       end
 

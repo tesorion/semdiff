@@ -2,7 +2,7 @@
 
 require 'tempfile'
 
-module RDiff
+module Semdiff
   module IOUtils
     include ::Typeguard::TypeModel::Builder
 

@@ -2,7 +2,7 @@
 
 # require 'prism'
 
-module RDiff
+module Semdiff
   # This visitor is responsible for mapping AST nodes to type information.
   # Returns a Hash of `node_id => flags` : `{10 => 7, 11 => 7}`
   class TypeVisitor < ::Prism::Visitor

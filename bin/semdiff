@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require 'rdiff'
+require 'semdiff'
 
-RDiff::CLI.new.parse(ARGV)
+Semdiff::CLI.new.parse(ARGV)
