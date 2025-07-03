@@ -21,7 +21,7 @@ module Foo
       @ivar = 9 / 2
       c = @ivar + a
       c += @@cvar + (CONST + a)
-      c += 15 + 5 + CONST
+      c += 15 + 25 + CONST
       c += @@cvar / (15 - 14)
       d = '1'.concat('2')
       d = Array.new(0).push(d)

@@ -106,14 +106,14 @@ module Semdiff
 
     def sort_key(node)
       case node.type
+      when :integer_node, :float_node
+        "\x01#{node.value}"
       when :local_variable_read_node, :instance_variable_read_node,
            :class_variable_read_node, :global_variable_read_node,
            :constant_read_node, :call_node
-        node.name.to_s
-      when :integer_node, :float_node
-        "_#{node.value}"
+        "\x02#{node.name}"
       else
-        "~#{node.type}"
+        "\x03#{node.type}"
       end
     end
 

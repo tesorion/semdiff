@@ -329,7 +329,7 @@ module Semdiff
             1 + 2
             1.5 + 2.0
             1 + 2.5
-            BAR + 2
+            2 + BAR
           end
         RUBY
         <<~RUBY
@@ -346,7 +346,7 @@ module Semdiff
             2 + 1
             2.0 + 1.5
             2.5 + 1
-            2 + BAR
+            BAR + 2
           end
         RUBY
       )
@@ -368,7 +368,7 @@ module Semdiff
             3 * 4
             1.5 * 2.5
             2 * 3.5
-            BAZ * 3
+            3 * BAZ
           end
         RUBY
         <<~RUBY
@@ -385,7 +385,7 @@ module Semdiff
             4 * 3
             2.5 * 1.5
             3.5 * 2
-            3 * BAZ
+            BAZ * 3
           end
         RUBY
       )

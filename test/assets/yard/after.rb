@@ -21,7 +21,7 @@ module Foo
       @ivar = (2**2)
       c = a + @ivar
       c += a + @@cvar + CONST
-      c += CONST + 20
+      c += 20 + CONST + 20
       c += @@cvar * 1**0
       d = '1' << '2'
       d = [] << d
